@@ -31,7 +31,7 @@ class TeamsController < ApplicationController
         team.players << rb
         team.players << goalkeeper
         team.save
-        render json: {name:team[:name], players:team.players}
+        render json: {id:team.id, name:team[:name], players:team.players}
     end
 
     def update
@@ -64,7 +64,7 @@ class TeamsController < ApplicationController
         team.players << rb
         team.players << goalkeeper
         team.update(name: params["teamName"])
-        render json: {name:team[:name], players:team.players}
+        render json: {id:team.id, name:team[:name], players:team.players}
     end
 
     def destroy
